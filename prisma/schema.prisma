@@ -21,5 +21,22 @@ model User {
   lastName   String
   profileImage String?
   createdAt DateTime @default(now())
+  // this is to tell prima tha the user model and the side model have 1 to many relationship : Site Site[]
+  
+
+ 
+}
+
+model Site{
+  id        String   @id @default(uuid())
+  name      String
+  description       String
+  subdirectory     String @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  imageUrl String? 
+
+  //do not forget to run npx prisma db push each time you work on a fil like this
  
 }
